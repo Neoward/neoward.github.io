@@ -3,26 +3,92 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NEOWARD</title>
-<meta name="description" content="NEOWARD – Tower Defense und Ego-Shooter für Meta Quest.">
+<title>NEOWARD – Tower Defense × Ego-Shooter für Meta Quest</title>
+<meta name="description" content="NEOWARD – Tower Defense und Ego-Shooter für Meta Quest 3 und 3S. Baue Türme, nimm das Gewehr in die Hand und verteidige den Kern.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NEOWARD – Tower Defense × Ego-Shooter">
+<meta property="og:description" content="Für Meta Quest 3 · 3S. Bald im Meta Horizon Store.">
+<meta property="og:image" content="https://neoward.github.io/img/og.jpg">
+<meta name="theme-color" content="#0a0820">
+<link rel="icon" href="img/gizmo_icon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 <script src="email.js" defer></script>
+<script src="gizmo.js" defer></script>
 </head>
-<body>
-<main>
-<header><a class="logo" href="index.html">NEOWARD</a>
-<nav><a href="datenschutz.html">Datenschutz / Privacy</a><a href="impressum.html">Impressum / Imprint</a></nav></header>
-<section class="hero">
-<h1 class="title">NEOWARD</h1>
-<div class="line"></div>
-<p class="tag">Verteidige den Kern. Baue Türme, nimm das Gewehr in die Hand und halte vier Welten aus Licht und Stahl
-gegen Schwärme digitaler Gegner und gepanzerte Drohnen.</p>
-<p class="tag en">Defend the core. Build towers, take up your rifle and hold four worlds of light and steel against
-swarms of digital enemies and armoured drones.</p>
-<div class="badges"><span class="badge">Meta Quest 3 · 3S</span><span class="badge">Tower Defense × Ego-Shooter</span><span class="badge hot">Bald im Meta Horizon Store · Coming soon</span></div>
+<body class="home">
+<header class="top">
+  <a class="brand" href="#top"><img src="img/logo.png" alt="NEOWARD" width="1400" height="139"></a>
+  <nav><a href="#spiel">Spiel</a><a href="#welten">Welten</a><a href="#bilder">Bilder</a><a href="#kontakt">Kontakt</a></nav>
+</header>
+
+<section class="hero" id="top">
+  <picture class="hero-art" data-parallax="0.3">
+    <source media="(max-width: 700px)" srcset="img/banner_hoch.jpg">
+    <img src="img/banner.jpg" alt="NEOWARD: Türme am Weg, magentafarbene Drohnen und Gizmo" width="2400" height="720">
+  </picture>
+  <div class="hero-in">
+    <p class="kicker">Tower Defense × Ego-Shooter</p>
+    <p class="tag">Verteidige den Kern. Baue Türme, nimm das Gewehr in die Hand und halte vier Welten aus Licht und
+    Stahl gegen Schwärme korrumpierter Drohnen.</p>
+    <p class="tag en">Defend the core. Build towers, take up your rifle and hold four worlds of light and steel against
+    swarms of corrupted drones.</p>
+    <div class="badges"><span class="badge">Meta Quest 3 · 3S</span><span class="badge">Deutsch · English</span><span class="badge hot">Bald im Meta Horizon Store · Coming soon</span></div>
+  </div>
 </section>
-<div class="card"><p class="muted" style="margin:0">Kontakt / Contact: <span class="em" data-u="htar.nosreg" data-d="moc.em">gerson.rath [at] me [punkt] com</span></p></div>
-<footer><span>© 2026 NEOWARD</span><a href="datenschutz.html">Datenschutz / Privacy</a><a href="impressum.html">Impressum / Imprint</a></footer>
+
+<main>
+  <section class="block" id="spiel" data-gizmo="Ich bin Gizmo, deine Begleiterin. Du baust, ich funke! · I'm Gizmo, your companion.">
+    <h2><span>01</span>Bauen und selbst kämpfen</h2>
+    <p class="lead">Du stehst in Lebensgröße auf deiner Plattform mitten im Geschehen. Setz Türme an den Weg, rüste sie
+    auf – und greif selbst zum Gewehr, wenn die Welle zu dicht wird.</p>
+    <p class="lead en">You stand life-size on your platform in the middle of the action. Place towers along the path,
+    upgrade them – and grab your rifle when the wave gets too thick.</p>
+    <div class="feats">
+      <figure class="feat"><img src="img/s1.jpg" alt="Blick aus den Augen mit Gewehr" loading="lazy" width="1600" height="900"><figcaption><b>Gewehr in der Hand</b>Zielen, markieren, kritisch treffen. <i>Rifle in hand.</i></figcaption></figure>
+      <figure class="feat"><img src="img/s2.jpg" alt="Türme am Weg gegen eine dichte Welle" loading="lazy" width="1600" height="900"><figcaption><b>Sechs Türme</b>Gatling, Kryo, Plasma, Tesla, Railgun, Raketen. <i>Six towers.</i></figcaption></figure>
+      <figure class="feat"><img src="img/s3.jpg" alt="Boss auf dem Weg" loading="lazy" width="1600" height="900"><figcaption><b>Bosse</b>Jede Welt endet mit einem Wächter. <i>A boss guards every world.</i></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block" id="welten" data-gizmo="Vier Welten, zwanzig Missionen. Je tiefer wir gehen, desto mehr Magenta … · Four worlds, twenty missions.">
+    <h2><span>02</span>Vier Welten</h2>
+    <p class="lead">Zwanzig Missionen auf schwebenden Brücken über dem All. Je tiefer du vordringst, desto stärker frisst
+    sich die Korruption in Magenta durch den Himmel.</p>
+    <p class="lead en">Twenty missions on floating bridges above the void. The deeper you go, the more the magenta
+    corruption eats into the sky.</p>
+    <div class="worlds">
+      <div class="world" style="--w:#8eeaff;--k:.08"><b>I</b><span>Welt I · World I</span></div>
+      <div class="world" style="--w:#3fd0f5;--k:.22"><b>II</b><span>Welt II · World II</span></div>
+      <div class="world" style="--w:#1aa6d6;--k:.4"><b>III</b><span>Welt III · World III</span></div>
+      <div class="world" style="--w:#0f7fb0;--k:.65"><b>IV</b><span>Welt IV · World IV</span></div>
+    </div>
+  </section>
+
+  <section class="block" id="bilder" data-gizmo="Bilder direkt aus dem Spiel. Sieht gut aus, oder? · Straight from the game.">
+    <h2><span>03</span>Bilder</h2>
+    <div class="gallery">
+      <a href="img/s4.jpg" target="_blank" rel="noopener"><img src="img/s4.jpg" alt="Brücken, Tore und eine Welle in Welt IV" loading="lazy" width="1600" height="900"></a>
+      <a href="img/s5.jpg" target="_blank" rel="noopener"><img src="img/s5.jpg" alt="Aus den Augen auf den Boss" loading="lazy" width="1600" height="900"></a>
+      <a href="img/s6.jpg" target="_blank" rel="noopener"><img src="img/s6.jpg" alt="Welle zwischen den Türmen" loading="lazy" width="1600" height="900"></a>
+      <a href="img/s2.jpg" target="_blank" rel="noopener"><img src="img/s2.jpg" alt="Dichte Welle von oben" loading="lazy" width="1600" height="900"></a>
+    </div>
+  </section>
+
+  <section class="block" id="kontakt" data-gizmo="Bald im Meta Horizon Store. Ich warte schon! · Coming soon!">
+    <div class="cta">
+      <img src="img/logo.png" alt="NEOWARD" width="1400" height="139">
+      <p>Bald im Meta Horizon Store für Meta Quest 3 und 3S.<br><span class="muted">Coming soon to the Meta Horizon Store.</span></p>
+      <p class="muted small">Kontakt / Contact: <span class="em" data-u="htar.nosreg" data-d="moc.em">gerson.rath [at] me [punkt] com</span></p>
+    </div>
+  </section>
+
+  <footer><span>© 2026 NEOWARD</span><a href="datenschutz.html">Datenschutz / Privacy</a><a href="impressum.html">Impressum / Imprint</a></footer>
 </main>
+
+<aside class="gizmo" aria-hidden="true">
+  <div class="bubble" id="gizmo-say"></div>
+  <img src="img/gizmo.png" alt="" width="356" height="358">
+</aside>
 </body>
 </html>

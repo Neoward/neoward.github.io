@@ -1,6 +1,6 @@
 /* NEOWARD – Webseite. Farben wie im Spiel: Navy, Holo-Cyan (Spieler), Magenta (Gegner) */
 :root {
-  --bg: #070b1a; --bg2: #0c1430; --panel: rgba(18, 28, 58, 0.72);
+  --bg: #0a0820; --bg2: #120d33; --panel: rgba(18, 28, 58, 0.72);
   --text: #e8ecf5; --muted: #8f9ab3; --line: rgba(34, 216, 255, 0.18);
   --cyan: #22d8ff; --magenta: #ff289f;
 }
@@ -50,3 +50,93 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line);
 footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { color: var(--text); }
 @media (max-width: 480px) { nav a { margin-left: 0; margin-right: 14px; } h1 { font-size: 25px; } }
+
+/* ===== Startseite (neu): Logo, Parallax-Held, Gizmo als Begleiterin ===== */
+html { scroll-behavior: smooth; }
+body.home { overflow-x: hidden; }
+.home main { max-width: 1040px; padding-top: 0; }
+.top { position: fixed; inset: 0 0 auto 0; z-index: 20; display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 10px 20px; margin: 0; border: 0; background: rgba(7, 11, 26, 0); transition: background .3s, box-shadow .3s; }
+.top.solid { background: rgba(7, 11, 26, 0.86); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--line); }
+.top .brand img { display: block; height: 34px; width: auto; opacity: 0; transform: translateY(-6px); transition: opacity .3s, transform .3s;
+  filter: drop-shadow(0 0 8px rgba(34, 216, 255, .5)); }
+.top.solid .brand img { opacity: 1; transform: none; }
+.top nav a { color: var(--text); opacity: .75; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.top nav a:hover { opacity: 1; color: var(--cyan); }
+
+.home .hero { position: relative; padding: 0; text-align: center; overflow: hidden; }
+.hero-art { display: block; position: relative; will-change: transform; }
+.hero-art img { display: block; width: 100%; height: auto; }
+.hero-art::after { content: ""; position: absolute; inset: auto 0 0 0; height: 45%;
+  background: linear-gradient(180deg, transparent, var(--bg)); }
+.hero-in { position: relative; max-width: 760px; margin: -40px auto 0; padding: 0 16px 24px; }
+.kicker { margin: 0 0 18px; letter-spacing: .5em; padding-left: .5em; text-transform: uppercase; font-size: 13px; color: var(--cyan);
+  animation: rise 1s .15s ease-out both; }
+.home .hero .tag { font-size: 18px; animation: rise 1s .3s ease-out both; }
+.home .hero .tag.en { color: #b9c3da; }
+.home .badges { animation: rise 1s .45s ease-out both; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+.block { padding: 72px 0 8px; opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
+.block.seen { opacity: 1; transform: none; }
+.block h2 { font-size: clamp(26px, 4.5vw, 38px); color: #fff; margin: 0 0 16px; font-weight: 800; letter-spacing: .02em; }
+.block h2 span { display: inline-block; font-size: 14px; color: var(--magenta); letter-spacing: .2em; margin-right: 14px;
+  vertical-align: middle; font-weight: 700; }
+.lead { font-size: 18px; max-width: 720px; }
+.lead.en { font-size: 15px; color: var(--muted); }
+
+.feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+.feat { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  transition: transform .25s, border-color .25s, box-shadow .25s; }
+.feat:hover { transform: translateY(-4px); border-color: rgba(34, 216, 255, .55); box-shadow: 0 10px 40px rgba(34, 216, 255, .12); }
+.feat img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.feat figcaption { padding: 14px 16px 16px; font-size: 14px; color: var(--muted); }
+.feat figcaption b { display: block; color: var(--text); font-size: 16px; margin-bottom: 4px; }
+.feat figcaption i { display: block; font-style: normal; font-size: 13px; opacity: .8; margin-top: 2px; }
+
+.worlds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+.world { position: relative; border-radius: 12px; padding: 26px 12px 18px; text-align: center; overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 40, 159, var(--k)), rgba(7, 11, 26, .2) 70%), var(--panel);
+  border: 1px solid color-mix(in srgb, var(--w) 45%, transparent); }
+.world b { display: block; font-size: 40px; line-height: 1; color: var(--w); text-shadow: 0 0 16px var(--w); margin-bottom: 10px; }
+.world span { font-size: 13px; color: var(--muted); }
+
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 24px; }
+.gallery a { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.gallery img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .4s; }
+.gallery a:hover img { transform: scale(1.04); }
+
+.cta { text-align: center; padding: 40px 20px; border-radius: 14px; border: 1px solid rgba(255, 40, 159, .35);
+  background: radial-gradient(ellipse at 50% 0%, rgba(34, 216, 255, .14), transparent 70%), var(--panel); }
+.cta img { width: min(360px, 70vw); height: auto; filter: drop-shadow(0 0 14px rgba(34, 216, 255, .5)); }
+.cta p { font-size: 17px; margin: 14px 0 0; }
+.small { font-size: 14px; }
+
+/* Gizmo: schwebt mit, bleibt am Rand stehen, spricht je Abschnitt */
+.gizmo { position: fixed; right: 18px; bottom: 18px; z-index: 30; width: 150px; pointer-events: none; opacity: 0;
+  visibility: hidden; transition: opacity .5s, visibility .5s; }
+.gizmo.on { opacity: 1; visibility: visible; }
+.gizmo img { display: block; width: 100%; height: auto; animation: hover 4.5s ease-in-out infinite;
+  filter: drop-shadow(0 10px 18px rgba(34, 216, 255, .35)); }
+.gizmo .bubble { position: absolute; right: 120px; bottom: 112px; width: 230px; padding: 10px 14px; border-radius: 14px 14px 4px 14px;
+  background: rgba(10, 18, 42, .92); border: 1px solid rgba(34, 216, 255, .5); color: var(--text); font-size: 13px; line-height: 1.45;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .4); opacity: 0; transform: translateY(6px) scale(.97); transition: opacity .35s, transform .35s; }
+.gizmo .bubble.on { opacity: 1; transform: none; }
+@keyframes hover { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+
+@media (max-width: 760px) {
+  .feats { grid-template-columns: 1fr; }
+  .worlds { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: 1fr; }
+  .top nav { display: none; }
+  .top .brand img { height: 22px; }
+  .home main { padding-bottom: 150px; }
+  .hero-in { margin-top: -24px; }
+  .gizmo { width: 96px; right: 10px; bottom: 10px; }
+  .gizmo .bubble { right: 70px; bottom: 76px; width: 190px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .gizmo img, .kicker, .home .hero .tag, .home .badges { animation: none; }
+  .block { opacity: 1; transform: none; transition: none; }
+}
