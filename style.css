@@ -49,6 +49,8 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line);
   display: flex; flex-wrap: wrap; gap: 8px 18px; }
 footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { color: var(--text); }
+footer { align-items: center; }
+footer img.studio { height: 54px; width: auto; opacity: 0.85; margin-right: 6px; }
 @media (max-width: 480px) { nav a { margin-left: 0; margin-right: 14px; } h1 { font-size: 25px; } }
 
 /* ===== Startseite (neu): Logo, Parallax-Held, Gizmo als Begleiterin ===== */
