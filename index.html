@@ -15,8 +15,12 @@
 <link rel="stylesheet" href="style.css">
 <script src="email.js" defer></script>
 <script src="gizmo.js" defer></script>
+<script src="fx.js" defer></script>
 </head>
 <body class="home">
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="progress" aria-hidden="true"></div>
+<div class="reticle" aria-hidden="true"></div>
 <header class="top">
   <a class="brand" href="#top"><img src="img/logo.png" alt="NEOWARD" width="1400" height="207"></a>
   <nav><a href="#spiel">Spiel</a><a href="#welten">Welten</a><a href="#bilder">Bilder</a><a href="#kontakt">Kontakt</a></nav>
@@ -27,6 +31,7 @@
     <source media="(max-width: 700px)" srcset="img/banner_hoch.jpg">
     <img src="img/banner.jpg" alt="NEOWARD: Türme am Weg, das Gegner-Tor und Gizmo" width="2400" height="720">
   </picture>
+  <div class="sweep" aria-hidden="true"></div>
   <div class="hero-in">
     <p class="kicker">Tower Defense × Ego-Shooter</p>
     <p class="tag">Verteidige die Zuflucht. Baue Türme, nimm das Gewehr in die Hand und halte vier Welten aus Licht und
@@ -34,10 +39,23 @@
     <p class="tag en">Defend the haven. Build towers, take up your rifle and hold four worlds of light and steel against
     swarms of corrupted drones.</p>
     <div class="badges"><span class="badge">Meta Quest 3 · 3S</span><span class="badge">English · Deutsch · Français · Español</span><span class="badge hot">Bald im Meta Horizon Store · Coming soon</span></div>
+    <a class="down" href="#spiel" aria-label="Weiter"><span></span></a>
   </div>
 </section>
 
+<div class="ticker" aria-hidden="true"><div class="run">
+  <span>Tower Defense</span><span>Ego-Shooter</span><span>Lebensgroß in VR</span><span>Vier Welten</span><span>Fünf Bosse</span><span>Sechs Türme</span><span>Verteidige die Zuflucht</span><span>Defend the haven</span>
+  <span>Tower Defense</span><span>Ego-Shooter</span><span>Lebensgroß in VR</span><span>Vier Welten</span><span>Fünf Bosse</span><span>Sechs Türme</span><span>Verteidige die Zuflucht</span><span>Defend the haven</span>
+</div></div>
+
 <main>
+  <section class="stats block">
+    <div><b data-n="4">4</b><span>Welten · Worlds</span></div>
+    <div><b data-n="20">20</b><span>Missionen · Missions</span></div>
+    <div><b data-n="6">6</b><span>Türme · Towers</span></div>
+    <div><b data-n="5">5</b><span>Bosse · Bosses</span></div>
+  </section>
+
   <section class="block" id="spiel" data-gizmo="Ich bin Gizmo, deine Begleiterin. Du baust, ich funke! · I'm Gizmo, your companion.">
     <h2><span>01</span>Bauen und selbst kämpfen</h2>
     <p class="lead">Du stehst in Lebensgröße auf deiner Plattform mitten im Geschehen. Setz Türme an den Weg, rüste sie
@@ -45,9 +63,18 @@
     <p class="lead en">You stand life-size on your platform in the middle of the action. Place towers along the path,
     upgrade them – and grab your rifle when the wave gets too thick.</p>
     <div class="feats">
-      <figure class="feat"><img src="img/s1.jpg" alt="Blick aus den Augen mit Gewehr" loading="lazy" width="1600" height="900"><figcaption><b>Gewehr in der Hand</b>Zielen, markieren, kritisch treffen. <i>Rifle in hand.</i></figcaption></figure>
-      <figure class="feat"><img src="img/s2.jpg" alt="Übersicht: Türme an den Bahnen gegen eine Welle" loading="lazy" width="1600" height="900"><figcaption><b>Sechs Türme</b>Gatling, Kryo, Plasma, Tesla, Railgun, Raketen. <i>Six towers.</i></figcaption></figure>
-      <figure class="feat"><img src="img/s3.jpg" alt="Sichelwächter Kael, der Boss der zweiten Welt" loading="lazy" width="1600" height="900"><figcaption><b>Bosse</b>Jede Welt endet mit einem Wächter. <i>A boss guards every world.</i></figcaption></figure>
+      <figure class="feat tilt"><img src="img/s1.jpg" alt="Blick aus den Augen mit Gewehr" loading="lazy" width="1600" height="900"><figcaption><b>Gewehr in der Hand</b>Zielen, markieren, kritisch treffen. <i>Rifle in hand.</i></figcaption></figure>
+      <figure class="feat tilt"><img src="img/s2.jpg" alt="Übersicht: Türme an den Bahnen gegen eine Welle" loading="lazy" width="1600" height="900"><figcaption><b>Sechs Türme</b>Gatling, Kryo, Plasma, Tesla, Railgun, Raketen. <i>Six towers.</i></figcaption></figure>
+      <figure class="feat tilt"><img src="img/s3.jpg" alt="Sichelwächter Kael, der Boss der zweiten Welt" loading="lazy" width="1600" height="900"><figcaption><b>Bosse</b>Jede Welt endet mit einem Wächter. <i>A boss guards every world.</i></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="wave" aria-label="Die Welle">
+    <div class="wave-art" data-parallax="-0.12"><img src="img/s4.jpg" alt="Blick vom Standplatz in eine dichte Welle" loading="lazy" width="1600" height="900"></div>
+    <div class="wave-in">
+      <p class="kicker">Welle 10 von 10 · Final wave</p>
+      <p class="big">Halte die <em>Linie</em>.</p>
+      <p class="lead">Wenn die Türme nicht mehr reichen, entscheidet dein Abzug.<br><span class="muted">When the towers aren't enough, your trigger decides.</span></p>
     </div>
   </section>
 
@@ -58,20 +85,20 @@
     <p class="lead en">Twenty missions on floating bridges above the void. The deeper you go, the darker the worlds become
     – and the closer the corruption presses in.</p>
     <div class="worlds">
-      <div class="world" style="--w:#8eeaff;--k:.34"><b>I</b><span>Lichtfeld · Light Field</span></div>
-      <div class="world" style="--w:#3fd0f5;--k:.24"><b>II</b><span>Sturmzone · Storm Zone</span></div>
-      <div class="world" style="--w:#1aa6d6;--k:.14"><b>III</b><span>Zerfall · Decay</span></div>
-      <div class="world" style="--w:#22d8ff;--k:.05"><b>IV</b><span>Korrumpierter Kern · Corrupted Core</span></div>
+      <div class="world tilt" style="--w:#8eeaff;--k:.34"><b>I</b><span>Lichtfeld · Light Field</span></div>
+      <div class="world tilt" style="--w:#3fd0f5;--k:.24"><b>II</b><span>Sturmzone · Storm Zone</span></div>
+      <div class="world tilt" style="--w:#1aa6d6;--k:.14"><b>III</b><span>Zerfall · Decay</span></div>
+      <div class="world tilt" style="--w:#22d8ff;--k:.05"><b>IV</b><span>Korrumpierter Kern · Corrupted Core</span></div>
     </div>
   </section>
 
   <section class="block" id="bilder" data-gizmo="Bilder direkt aus dem Spiel. Sieht gut aus, oder? · Straight from the game.">
     <h2><span>03</span>Bilder</h2>
     <div class="gallery">
-      <a href="img/s4.jpg" target="_blank" rel="noopener"><img src="img/s4.jpg" alt="Hand am Gewehr, Blick vom Standplatz in eine dichte Welle" loading="lazy" width="1600" height="900"></a>
-      <a href="img/s5.jpg" target="_blank" rel="noopener"><img src="img/s5.jpg" alt="Gegner vor dem Wabentor der Zuflucht" loading="lazy" width="1600" height="900"></a>
-      <a href="img/s6.jpg" target="_blank" rel="noopener"><img src="img/s6.jpg" alt="Wege und Türme in Welt I, hinten Gegner-Tor und Zuflucht" loading="lazy" width="1600" height="900"></a>
-      <a href="img/s7.jpg" target="_blank" rel="noopener"><img src="img/s7.jpg" alt="Levelauswahl: das Relaisnetz" loading="lazy" width="1600" height="900"></a>
+      <a class="shot" href="img/s4.jpg" target="_blank" rel="noopener"><img src="img/s4.jpg" alt="Hand am Gewehr, Blick vom Standplatz in eine dichte Welle" loading="lazy" width="1600" height="900"></a>
+      <a class="shot" href="img/s5.jpg" target="_blank" rel="noopener"><img src="img/s5.jpg" alt="Gegner vor dem Wabentor der Zuflucht" loading="lazy" width="1600" height="900"></a>
+      <a class="shot" href="img/s6.jpg" target="_blank" rel="noopener"><img src="img/s6.jpg" alt="Wege und Türme in Welt I, hinten Gegner-Tor und Zuflucht" loading="lazy" width="1600" height="900"></a>
+      <a class="shot" href="img/s7.jpg" target="_blank" rel="noopener"><img src="img/s7.jpg" alt="Levelauswahl: das Relaisnetz" loading="lazy" width="1600" height="900"></a>
     </div>
   </section>
 
@@ -90,5 +117,6 @@
   <div class="bubble" id="gizmo-say"></div>
   <img src="img/gizmo.png" alt="" width="356" height="358">
 </aside>
+<div class="lightbox" hidden><img alt=""></div>
 </body>
 </html>
