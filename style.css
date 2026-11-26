@@ -255,3 +255,15 @@ body.home { overflow-x: hidden; }
   .home .hero .hero-art img, .sweep::before, .ticker .run, .down, .down span { animation: none; }
   .block h2::after { transition: none; }
 }
+
+/* Trailer */
+.video { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 10px 40px rgba(34, 216, 255, .10); }
+.video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+
+/* Kaufen-Knopf (Link zur Store-Seite) */
+a.badge { text-decoration: none; }
+a.badge.hot:hover { filter: brightness(1.15); }
+.buy { display: inline-block; padding: 14px 26px; border-radius: 10px; background: var(--cyan); color: #04121c; font-weight: 800;
+  letter-spacing: .04em; text-decoration: none; box-shadow: 0 0 28px rgba(34, 216, 255, .35); transition: transform .15s, box-shadow .15s; }
+.buy:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(34, 216, 255, .55); }
+.buyrow { text-align: center; margin: 22px 0 0; }
